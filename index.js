@@ -161,6 +161,10 @@ window.addEventListener('load', () => {
   // Add staggered animation to header elements
   const headerElements = document.querySelectorAll('.header__text > *');
   headerElements.forEach((el, index) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'all 0.6s ease-out';
+    
     setTimeout(() => {
       el.style.opacity = '1';
       el.style.transform = 'translateY(0)';
@@ -193,46 +197,241 @@ contactButtons.forEach(button => {
 });
 
 /* -----------------------------------------
-  Typing Effect for Header Subtitle (Optional)
+  Enhanced Project Card Interactions
+ ---------------------------------------- */
+const projectBoxes = document.querySelectorAll('.work__box');
+
+projectBoxes.forEach(box => {
+  // Add subtle tilt effect on mouse move
+  box.addEventListener('mousemove', (e) => {
+    const rect = box.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = (y - centerY) / 30;
+    const rotateY = (centerX - x) / 30;
+    
+    box.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+  });
+  
+  box.addEventListener('mouseleave', () => {
+    box.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+  });
+});
+
+/* -----------------------------------------
+  Skill Items Counter Animation
+ ---------------------------------------- */
+const skillItems = document.querySelectorAll('.skills__list li');
+
+skillItems.forEach((item, index) => {
+  item.style.opacity = '0';
+  item.style.transform = 'translateX(-20px)';
+  item.style.transition = `all 0.4s ease-out ${index * 0.05}s`;
+});
+
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const items = entry.target.querySelectorAll('.skills__list li');
+      items.forEach(item => {
+        item.style.opacity = '1';
+        item.style.transform = 'translateX(0)';
+      });
+      skillObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+skillCategories.forEach(category => {
+  skillObserver.observe(category);
+});
+
+/* -----------------------------------------
+  Achievement Items Animation
+ ---------------------------------------- */
+const achievementItems = document.querySelectorAll('.achievement__item');
+
+achievementItems.forEach((item, index) => {
+  item.style.opacity = '0';
+  item.style.transform = 'translateX(-30px)';
+  item.style.transition = `all 0.5s ease-out ${index * 0.15}s`;
+});
+
+const achievementObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateX(0)';
+      achievementObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+achievementItems.forEach(item => {
+  achievementObserver.observe(item);
+});
+
+/* -----------------------------------------
+  Parallax Effect for Header
+ ---------------------------------------- */
+const header = document.querySelector('.header');
+
+if (header) {
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const headerText = document.querySelector('.header__text');
+    
+    if (headerText && scrolled < window.innerHeight) {
+      headerText.style.transform = `translateY(calc(-50% + ${scrolled * 0.5}px))`;
+      headerText.style.opacity = 1 - (scrolled / 700);
+    }
+  });
+}
+
+/* -----------------------------------------
+  CV Button Hover Effect
+ ---------------------------------------- */
+const cvButton = document.querySelector('.about .btn');
+
+if (cvButton) {
+  cvButton.addEventListener('mouseenter', function() {
+    this.innerHTML = '📄 Download CV';
+  });
+  
+  cvButton.addEventListener('mouseleave', function() {
+    this.innerHTML = 'Download CV';
+  });
+}
+
+/* -----------------------------------------
+  Social Links Animation
+ ---------------------------------------- */
+const socialLinks = document.querySelectorAll('.footer__social-link-item');
+
+socialLinks.forEach((link, index) => {
+  link.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s forwards`;
+  link.style.opacity = '0';
+});
+
+/* -----------------------------------------
+  Email Copy Functionality
+ ---------------------------------------- */
+const emailButton = document.querySelector('.contact .btn');
+
+if (emailButton) {
+  emailButton.addEventListener('click', (e) => {
+    // Allow default mailto: behavior
+    const email = 'hasibulnowhere2848@gmail.com';
+    
+    // Show tooltip
+    const tooltip = document.createElement('span');
+    tooltip.textContent = 'Opening email client...';
+    tooltip.style.cssText = `
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-teal);
+      color: var(--black);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 1.4rem;
+      white-space: nowrap;
+      pointer-events: none;
+      animation: fadeInUp 0.3s ease-out;
+    `;
+    
+    emailButton.style.position = 'relative';
+    emailButton.appendChild(tooltip);
+    
+    setTimeout(() => {
+      tooltip.remove();
+    }, 2000);
+  });
+}
+
+/* -----------------------------------------
+  Typing Effect for Header Subtitle
  ---------------------------------------- */
 const typeWriter = (element, text, speed = 100) => {
   let i = 0;
+  const originalText = text;
   element.textContent = '';
+  element.style.borderRight = '2px solid var(--accent-teal)';
   
   const type = () => {
     if (i < text.length) {
       element.textContent += text.charAt(i);
       i++;
       setTimeout(type, speed);
+    } else {
+      // Remove cursor after typing
+      setTimeout(() => {
+        element.style.borderRight = 'none';
+      }, 500);
     }
   };
   
   type();
 };
 
-// Uncomment to activate typing effect
-// const subtitle = document.querySelector('.header__subtitle');
-// if (subtitle) {
-//   const originalText = subtitle.textContent;
-//   setTimeout(() => {
-//     typeWriter(subtitle, originalText, 80);
-//   }, 1000);
-// }
+// Activate typing effect for subtitle
+window.addEventListener('load', () => {
+  const subtitle = document.querySelector('.header__subtitle');
+  if (subtitle) {
+    const originalText = subtitle.textContent;
+    setTimeout(() => {
+      typeWriter(subtitle, originalText, 80);
+    }, 1500);
+  }
+});
+
+/* -----------------------------------------
+  Navigation Bar Scroll Effect
+ ---------------------------------------- */
+const nav = document.querySelector('.nav');
+const navItems = document.querySelector('.nav__items');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    if (navItems) {
+      navItems.style.background = 'rgba(0, 26, 51, 0.95)';
+      navItems.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.4)';
+    }
+  } else {
+    if (navItems) {
+      navItems.style.background = 'rgba(0, 26, 51, 0.7)';
+      navItems.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+    }
+  }
+});
 
 /* -----------------------------------------
   Console Easter Egg
  ---------------------------------------- */
 console.log(
-  '%c👋 Hello there! ',
-  'background: #0066cc; color: #00d4aa; font-size: 20px; padding: 10px; border-radius: 5px;'
+  '%c👋 Hello there, curious developer! ',
+  'background: #0066cc; color: #00d4aa; font-size: 20px; padding: 10px; border-radius: 5px; font-weight: bold;'
 );
 console.log(
-  '%cLooking for something? Feel free to reach out! 🚀',
-  'color: #00d4aa; font-size: 14px;'
+  '%c🚀 Welcome to my portfolio! Looking under the hood?',
+  'color: #00d4aa; font-size: 16px; font-weight: bold;'
 );
 console.log(
-  '%c📧 Email: jihad@example.com',
-  'color: #e5e5e6da; font-size: 12px;'
+  '%c📧 Let\'s connect: hasibulnowhere2848@gmail.com',
+  'color: #e5e5e6da; font-size: 14px;'
+);
+console.log(
+  '%c💼 GitHub: github.com/Hasibul-Jihad',
+  'color: #e5e5e6da; font-size: 14px;'
+);
+console.log(
+  '%c⚡ Built with passion for Electronics & Telecommunication Engineering',
+  'color: #0066cc; font-size: 12px; font-style: italic;'
 );
 
 /* -----------------------------------------
@@ -251,17 +450,129 @@ const debounce = (func, wait = 10) => {
 };
 
 // Apply debounce to scroll-intensive functions
-window.addEventListener('scroll', debounce(highlightNav, 50));
+const debouncedHighlightNav = debounce(highlightNav, 50);
+window.removeEventListener('scroll', highlightNav);
+window.addEventListener('scroll', debouncedHighlightNav);
 
 /* -----------------------------------------
-  Mobile Menu Toggle (if needed in future)
+  Lazy Load Images
+ ---------------------------------------- */
+const images = document.querySelectorAll('img[data-src]');
+
+const imageObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const img = entry.target;
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+      imageObserver.unobserve(img);
+    }
+  });
+});
+
+images.forEach(img => imageObserver.observe(img));
+
+/* -----------------------------------------
+  Add Pulse Animation to CSS
+ ---------------------------------------- */
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .nav__link.active {
+    color: var(--accent-teal);
+  }
+  
+  .nav__link.active::after {
+    right: 0;
+  }
+`;
+document.head.appendChild(style);
+
+/* -----------------------------------------
+  Mobile Menu Toggle
  ---------------------------------------- */
 const createMobileMenu = () => {
   if (window.innerWidth < 600) {
     const nav = document.querySelector('.nav');
-    // Mobile menu functionality can be added here if needed
+    // Mobile menu functionality - keep nav functional on small screens
+    if (nav) {
+      nav.style.position = 'sticky';
+      nav.style.top = '0';
+      nav.style.zIndex = '100';
+    }
   }
 };
 
 window.addEventListener('resize', debounce(createMobileMenu, 100));
 createMobileMenu();
+
+/* -----------------------------------------
+  Accessibility: Skip to Content
+ ---------------------------------------- */
+const createSkipLink = () => {
+  const skipLink = document.createElement('a');
+  skipLink.href = '#vision';
+  skipLink.textContent = 'Skip to content';
+  skipLink.className = 'skip-link';
+  skipLink.style.cssText = `
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-teal);
+    color: var(--black);
+    padding: 8px;
+    text-decoration: none;
+    z-index: 1000;
+  `;
+  
+  skipLink.addEventListener('focus', () => {
+    skipLink.style.top = '0';
+  });
+  
+  skipLink.addEventListener('blur', () => {
+    skipLink.style.top = '-40px';
+  });
+  
+  document.body.insertBefore(skipLink, document.body.firstChild);
+};
+
+createSkipLink();
+
+/* -----------------------------------------
+  Performance Monitor (Development Only)
+ ---------------------------------------- */
+if (window.performance && console.table) {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const perfData = window.performance.timing;
+      const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+      const connectTime = perfData.responseEnd - perfData.requestStart;
+      const renderTime = perfData.domComplete - perfData.domLoading;
+      
+      console.log(
+        '%c⚡ Performance Metrics',
+        'background: #0066cc; color: white; font-size: 14px; padding: 5px 10px; border-radius: 3px;'
+      );
+      console.table({
+        'Page Load Time': `${pageLoadTime}ms`,
+        'Server Response': `${connectTime}ms`,
+        'Render Time': `${renderTime}ms`
+      });
+    }, 0);
+  });
+}
