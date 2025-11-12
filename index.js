@@ -122,11 +122,11 @@ const skillCategories = document.querySelectorAll('.skills__category');
 
 skillCategories.forEach(category => {
   category.addEventListener('mouseenter', function() {
-    this.style.transform = 'translateY(-10px) scale(1.02)';
+    this.style.transform = 'translateY(-5px)';
   });
   
   category.addEventListener('mouseleave', function() {
-    this.style.transform = 'translateY(0) scale(1)';
+    this.style.transform = 'translateY(0)';
   });
 });
 
