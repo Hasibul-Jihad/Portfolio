@@ -1,276 +1,571 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/png" href="./images/favicon.png" />
-
-  <title>
-    Md. Hasibul Islam Jihad | Electronics & Telecommunication Engineering Student
-  </title>
-
-  <meta name="description" content="Undergraduate student passionate about IoT, embedded systems, and innovative technology solutions.">
-  <meta name="keywords" content="Hasibul Islam Jihad, ETE, CUET, Electronics Engineering, IoT, Embedded Systems, Telecommunications" />
-  <link rel="stylesheet" href="index.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Hasibul Islam Jihad | ETE Student & Developer</title>
+    <meta name="description" content="Electronics & Telecommunication Engineering student specializing in IoT, embedded systems, and full-stack development.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
 
-  <!-- ***** Header ***** -->
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">HIJ</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#journey" class="nav-link">Journey</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-  <header class="header" role="banner" id="top">
-    <div class="row">
-      <nav class="nav" role="navigation">
-        <ul class="nav__items">
-          <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-          <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
-          <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-          <li class="nav__item"><a href="#achievements" class="nav__link">Achievements</a></li>
-          <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="header__text-box row">
-      <div class="header__text">
-        <h1 class="heading-primary">
-          <span>Md. Hasibul Islam Jihad</span>
-        </h1>
-        <p>Electronics & Telecommunication Engineering Student at CUET</p>
-        <p class="header__subtitle">Building the Future, One Circuit at a Time</p>
-        <a href="#contact" class="btn btn--pink">Get in Touch</a>
-      </div>
-    </div>
-  </header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <canvas id="particleCanvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-name">
+                    <span class="typing-text">Md. Hasibul Islam Jihad</span>
+                </h1>
+                <p class="hero-title">
+                    <span class="gradient-text">Electronics & Telecommunication Engineer</span>
+                </p>
+                <p class="hero-subtitle">Crafting innovative solutions in IoT, Embedded Systems & Full-Stack Development</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View Projects</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Get In Touch</span>
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <div class="hero-social">
+                    <a href="https://github.com/Hasibul-Jihad" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/md-hasibul-islam-jihad-2bb430273" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:hasibulnowhere2848@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="https://i.ibb.co.com/BKwsbRdc/1681958793929.jpg" alt="Hasibul Islam Jihad">
+                    <div class="image-glow"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
 
-  <main role="main">
-
-    <!-- ***** About ***** -->
-
+    <!-- About Section -->
     <section class="about" id="about">
-      <div class="row">
-        <h2>About Me</h2>
-        <div class="about__content">
-          <div class="about__text">
-            <p>
-              I am Md. Hasibul Islam Jihad, an undergraduate student pursuing Electronics & Telecommunication 
-              Engineering at Chittagong University of Engineering & Technology (CUET). My journey in engineering 
-              began with a fascination for how technology shapes our world, and has evolved into a dedicated 
-              pursuit of knowledge in embedded systems, IoT, and wireless communications.
-            </p>
-            <p>
-              At CUET, I actively engage in both academic excellence and extracurricular activities. I believe 
-              in learning by doing—whether it's building circuits in the lab, coding late into the night, or 
-              collaborating with peers on innovative projects. Beyond technical skills, I value creativity, 
-              teamwork, and the continuous quest for improvement.
-            </p>
-            <p>
-              When I'm not immersed in engineering challenges, I enjoy exploring new technologies, participating 
-              in tech competitions, and contributing to community projects that leverage technology for social good.
-            </p>
-            <a href="cv.html" class="btn" target="_blank">Download CV</a>
-          </div>
-
-          <div class="about__photo-container">
-            <img class="about__photo" src="https://i.ibb.co.com/BKwsbRdc/1681958793929.jpg" alt="Md. Hasibul Islam Jihad" />
-          </div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Who Am I?</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        I'm an undergraduate student at <strong>Chittagong University of Engineering & Technology (CUET)</strong>, 
+                        pursuing Electronics & Telecommunication Engineering with a passion for creating innovative technological solutions.
+                    </p>
+                    <p>
+                        My journey began with curiosity about how things work, evolving into expertise in <strong>IoT systems</strong>, 
+                        <strong>embedded systems</strong>, and <strong>full-stack development</strong>. I believe in learning by doing—whether 
+                        it's designing circuits, building web applications, or competing in tech events.
+                    </p>
+                    <p>
+                        Beyond academics, I'm driven by the challenge of transforming complex problems into elegant solutions. 
+                        From hardware to software, I thrive at the intersection of creativity and technology.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Technologies</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1+</span>
+                            <span class="stat-label">Years Learning</span>
+                        </div>
+                    </div>
+                    <a href="cv.html" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        <span>Download CV</span>
+                    </a>
+                </div>
+                <div class="about-image">
+                    <div class="about-card">
+                        <div class="card-glow"></div>
+                        <img src="https://i.ibb.co.com/BKwsbRdc/1681958793929.jpg" alt="Hasibul Islam Jihad">
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- ***** Projects ***** -->
-
-    <section class="work" id="projects">
-      <div class="row">
-        <h2>Featured Projects</h2>
-        <div class="work__boxes">
-
-          <div class="work__box">
-            <div class="work__text">
-              <h3>GrubGo</h3>
-              <p>
-                A full-stack food ordering and delivery platform that enables users to browse restaurants, 
-                place orders, and track deliveries in real-time. Built with modern web technologies and 
-                secure authentication for seamless user experience.
-              </p>
-              <ul class="work__list">
-                <li>Python</li>
-                <li>Flask</li>
-                <li>SQLite</li>
-                <li>Tailwind CSS</li>
-                <li>JavaScript</li>
-              </ul>
-
-              <div class="work__links">
-                <a href="https://github.com/Hasibul-Jihad/GrubGO.git" target="_blank" class="link__text">
-                  View Repository <span>&rarr;</span>
-                </a>
-                <a href="https://github.com/Hasibul-Jihad/GrubGO.git" title="View Source Code" target="_blank">
-                  <img src="./images/github.svg" class="work__code" alt="GitHub">
-                </a>
-              </div>
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">My Work</span>
+                <h2 class="section-title">Featured Projects</h2>
             </div>
-            <div class="work__image-box">
-              <img src="https://i.ibb.co/0pWyj372/grubgo.png" class="work__image" alt="GrubGo Food Delivery Platform" />
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Dev</button>
+                <button class="filter-btn" data-filter="iot">IoT</button>
+                <button class="filter-btn" data-filter="embedded">Embedded</button>
             </div>
-          </div>
 
-          <div class="work__box">
-            <div class="work__text">
-              <h3>Goal Of Destiny</h3>
-              <p>
-                An interactive web application designed to store and organize articles related to sports in general 
-              </p>
-              <ul class="work__list">
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>JavaScript</li>
-                <li>Responsive Design</li>
-              </ul>
+            <div class="projects-grid">
+                <!-- Project 1: GrubGo -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="./images/project-1.png" alt="GrubGo">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Hasibul-Jihad/GrubGO.git" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>GrubGo</h3>
+                            <span class="project-type">Full-Stack Web App</span>
+                        </div>
+                        <p class="project-description">
+                            A comprehensive food ordering and delivery platform with real-time order tracking, 
+                            secure authentication, and intuitive restaurant browsing experience.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">Tailwind</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Hasibul-Jihad/GrubGO.git" target="_blank" class="project-btn">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-              <div class="work__links">
-                <a href="https://github.com/Hasibul-Jihad/goal-of-destiny.git" target="_blank" class="link__text">
-                  View Repository <span>&rarr;</span>
-                </a>
-                <a href="https://github.com/Hasibul-Jihad/goal-of-destiny.git" title="View Source Code" target="_blank">
-                  <img src="./images/github.svg" class="work__code" alt="GitHub">
-                </a>
-              </div>
+                <!-- Project 2: Goal Of Destiny -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="./images/project-2.png" alt="Goal Of Destiny">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Hasibul-Jihad/goal-of-destiny.git" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Goal Of Destiny</h3>
+                            <span class="project-type">Web Application</span>
+                        </div>
+                        <p class="project-description">
+                            An interactive goal tracking application helping users set, monitor, and achieve their 
+                            personal and professional objectives with milestone celebrations.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Responsive</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Hasibul-Jihad/goal-of-destiny.git" target="_blank" class="project-btn">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="work__image-box">
-              <img src="https://i.ibb.co.com/sdLZc6hk/529412248-122096980472977952-3783179046064710685-n.jpg" class="work__image" alt="Goal Of Destiny Application" />
-            </div>
-          </div>
-
         </div>
-      </div>
     </section>
 
-    <!-- ***** Skills ***** -->
-
+    <!-- Skills Section -->
     <section class="skills" id="skills">
-      <div class="row">
-        <h2>Technical Skills</h2>
-        <div class="skills__content">
-          <div class="skills__category">
-            <h3>Programming Languages</h3>
-            <ul class="skills__list">
-              <li>C/C++</li>
-              <li>Python</li>
-              <li>JavaScript</li>
-              <li>MATLAB</li>
-            </ul>
-          </div>
-          
-          <div class="skills__category">
-            <h3>Web Development</h3>
-            <ul class="skills__list">
-              <li>HTML5</li>
-              <li>CSS3</li>
-              <li>Flask</li>
-              <li>Tailwind CSS</li>
-              <li>Responsive Design</li>
-            </ul>
-          </div>
-          
-          <div class="skills__category">
-            <h3>Core Competencies</h3>
-            <ul class="skills__list">
-              <li>IoT Systems</li>
-              <li>Embedded Systems</li>
-              <li>Digital Signal Processing</li>
-              <li>Wireless Communication</li>
-              <li>Circuit Design</li>
-            </ul>
-          </div>
-          
-          <div class="skills__category">
-            <h3>Tools & Software</h3>
-            <ul class="skills__list">
-              <li>Git & GitHub</li>
-              <li>Proteus</li>
-              <li>Multisim</li>
-              <li>Simulink</li>
-              <li>PCB Design</li>
-            </ul>
-          </div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What I Know</span>
+                <h2 class="section-title">Technical Skills</h2>
+            </div>
+
+            <div class="skills-tabs">
+                <button class="tab-btn active" data-tab="languages">Languages</button>
+                <button class="tab-btn" data-tab="web">Web Dev</button>
+                <button class="tab-btn" data-tab="core">Core Skills</button>
+                <button class="tab-btn" data-tab="tools">Tools</button>
+            </div>
+
+            <div class="skills-content">
+                <!-- Languages Tab -->
+                <div class="tab-content active" data-content="languages">
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">C/C++</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">MATLAB</span>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Dev Tab -->
+                <div class="tab-content" data-content="web">
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">HTML5</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">CSS3</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Flask</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Tailwind CSS</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Responsive Design</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Skills Tab -->
+                <div class="tab-content" data-content="core">
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">IoT Systems</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Embedded Systems</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Digital Signal Processing</span>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Wireless Communication</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Circuit Design</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools Tab -->
+                <div class="tab-content" data-content="tools">
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Git & GitHub</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Proteus</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Multisim</span>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Simulink</span>
+                                <span class="skill-percent">65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">PCB Design</span>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- ***** Achievements ***** -->
+    <!-- Journey Section -->
+    <section class="journey" id="journey">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">My Path</span>
+                <h2 class="section-title">Journey & Achievements</h2>
+            </div>
 
-    <section class="achievements" id="achievements">
-      <div class="row">
-        <h2>Achievements & Activities</h2>
-        <div class="achievements__content">
-          <div class="achievement__item">
-            <h3>Televerse 1.0 Participant</h3>
-            <p>Active participant in CUET ETE's flagship event featuring IoT, cybersecurity, and ML competitions</p>
-          </div>
-          <div class="achievement__item">
-            <h3>Academic Excellence</h3>
-            <p>Maintaining strong academic performance while pursuing hands-on projects and practical experience</p>
-          </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2022 - Present</span>
+                        <h3>B.Sc. in Electronics & Telecommunication Engineering</h3>
+                        <p>Chittagong University of Engineering & Technology (CUET)</p>
+                        <span class="timeline-badge">Academic</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024</span>
+                        <h3>Televerse 1.0 Participant</h3>
+                        <p>Active participant in CUET ETE's flagship event featuring IoT, cybersecurity, and ML competitions</p>
+                        <span class="timeline-badge">Achievement</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024</span>
+                        <h3>GrubGo Project</h3>
+                        <p>Developed full-stack food delivery platform with modern tech stack</p>
+                        <span class="timeline-badge">Project</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Ongoing</span>
+                        <h3>Academic Excellence</h3>
+                        <p>Maintaining strong academic performance while pursuing hands-on projects</p>
+                        <span class="timeline-badge">Achievement</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <!-- ***** Contact ***** -->
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Get In Touch</span>
+                <h2 class="section-title">Let's Connect</h2>
+            </div>
 
-  <section class="contact" id="contact">
-    <div class="row">
-      <h2>Let's Connect</h2>
-      <div class="contact__info">
-        <p>
-          I'm always open to discussing new projects, innovative ideas, collaboration opportunities, 
-          or internships in electronics and telecommunication engineering. Whether you want to talk 
-          about IoT, embedded systems, or just connect with a fellow engineering enthusiast, feel 
-          free to reach out. I'd love to hear from you!
-        </p>
-        <a href="mailto:hasibulnowhere2848@gmail.com" class="btn">hasibulnowhere2848@gmail.com</a>
-      </div>
-    </div>
-  </section>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p class="contact-intro">
+                        I'm always open to discussing new projects, innovative ideas, collaboration opportunities, 
+                        or internships in electronics and telecommunication engineering.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:hasibulnowhere2848@gmail.com">hasibulnowhere2848@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Chittagong, Bangladesh</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/Hasibul-Jihad" target="_blank">@Hasibul-Jihad</a>
+                            </div>
+                        </div>
+                    </div>
 
-  <!-- ***** Footer ***** -->
+                    <div class="social-links">
+                        <a href="https://github.com/Hasibul-Jihad" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/md-hasibul-islam-jihad-2bb430273" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/hasibul_jihad" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="mailto:hasibulnowhere2848@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
 
-  <footer role="contentinfo" class="footer">
-    <div class="row">
-      <ul class="footer__social-links">
-        <li class="footer__social-link-item">
-          <a href="https://www.linkedin.com/in/md-hasibul-islam-jihad-2bb430273" title="Link to LinkedIn Profile">
-            <img src="https://i.ibb.co.com/FLnX0wTb/link.jpg" alt="LinkedIn" border="0">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href="https://github.com/Hasibul-Jihad" title="Link to Github Profile">
-            <img src="https://i.ibb.co.com/JjZDqxL4/git.png" alt="GitHub" border="0">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href="https://twitter.com/hasibul_jihad" title="Link to Twitter Profile">
-            <img src="https://i.ibb.co.com/JFMVjwCk/tw.jpg" alt="Twitter" border="0">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href="mailto:hasibulnowhere2848@gmail.com" title="Send Email">
-            <img src="https://i.ibb.co.com/dJ6FPNs3/Gmail-Dark-Mode.jpg" alt="Email" border="0">
-          </a>
-        </li>
-      </ul>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required>
+                        <label for="email">Your Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" required>
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-      <p>
-        &copy; 2024 Md. Hasibul Islam Jihad | Electronics & Telecommunication Engineering, CUET
-      </p>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Md. Hasibul Islam Jihad. All rights reserved.</p>
+            <p class="footer-subtitle">Built with passion and creativity</p>
+        </div>
+    </footer>
 
-  <a href="#top" class="back-to-top" title="Back to Top">
-    <img src="./images/arrow-up.svg" alt="Back to Top" class="back-to-top__image"/>
-  </a>
-  <script src="./index.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
